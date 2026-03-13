@@ -3,13 +3,17 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import Planet from "./Planet";
 
 export default function Scene() {
-  const sunPosition = [10, 0, 0];
+  const sunPosition = [0, 0, 0];
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
+      <div style={{ position: "absolute", top: 20, left: 500, zIndex: 1, color: "#fff", fontFamily: "Arial, sans-serif" }}>
+        <h1 style={{ margin: 0, fontSize: "3rem" }}>What it would be like on...</h1>
+        <p style={{ margin: "20px 0 0", fontSize: "0.9rem", color: "#ccc" }}>Click on a planet to explore</p>
+      </div>
       <Canvas
         style={{ width: "100%", height: "100%" }}
-        camera={{ position: [0, 5, 30] }}
+        camera={{ position: [0, 40, 80], fov: 45 }}
       >
         <color attach="background" args={["#020617"]} />
         <ambientLight intensity={0.5} />

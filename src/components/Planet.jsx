@@ -10,25 +10,28 @@ export default function Planet({
   color,
   center = [0, 0, 0],
   orbitRadius = 0,
-  orbitSpeed = 0,
+  orbitSpeed = 0, 
+  size = 1 // Added a default value so it never hits 0 or undefined
 }) {
   const navigate = useNavigate();
-  const orbitRef = useRef(); // Rotates the entire orbit
-  const planetRef = useRef(); // Rotates the actual planet mesh
+  const orbitRef = useRef(); 
+  const planetRef = useRef(); 
   const [hovered, setHovered] = useState(false);
 
   useFrame((state, delta) => {
-    // 1. Handle Orbiting
     if (orbitRef.current) {
       orbitRef.current.rotation.y += orbitSpeed * delta;
     }
 
-    // 2. Handle Local Planet Rotation & Pulse
     if (planetRef.current) {
       planetRef.current.rotation.y += 0.003;
-      const scaleBase = hovered ? 1.35 : 1.2;
-      const pulse = Math.sin(state.clock.elapsedTime * 2) * 0.03;
-      planetRef.current.scale.setScalar(scaleBase + pulse);
+      
+      // We multiply the BASE size by the dynamic modifiers
+      const hoverScale = hovered ? 1.15 : 1.0;
+      const pulse = Math.sin(state.clock.elapsedTime * 2) * 0.02;
+      
+      // This ensures the planet reflects the 'size' prop correctly
+      planetRef.current.scale.setScalar(size * (hoverScale + pulse));
     }
   });
 
@@ -36,40 +39,42 @@ export default function Planet({
   const hasModel = ["earth", "mars", "jupiter", "saturn", "mercury", "venus", "uranus", "neptune"].includes(id);
 
   return (
-    // This group stays at the center of the solar system
     <group position={center}>
-      
-      {/* This group rotates, moving everything inside it in a circle */}
       <group ref={orbitRef}>
-        
-        {/* This group is offset by the orbitRadius */}
         <group 
           position={[orbitRadius, 0, 0]} 
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
           onClick={() => navigate(`/planet/${id}`)}
         >
-          {/* The Actual Planet Visuals */}
+          {/* Hitbox: Scaled to the planet size so it's always reachable */}
+          <mesh visible={false}>
+            <sphereGeometry args={[size * 1.5, 16, 16]} /> 
+          </mesh>
+
           <group ref={planetRef}>
             {hasModel ? (
-              <PlanetGLTF path={`/models/${id}.glb`} scale={0.3} hovered={hovered} />
+              <PlanetGLTF path={`/models/${id}.glb`} hovered={hovered} />
             ) : (
               <mesh>
                 <sphereGeometry args={[1, 32, 32]} />
-                <meshStandardMaterial 
-                  color={color} 
-                  emissive={color} 
-                  emissiveIntensity={hovered ? 0.5 : 0} 
-                />
+                <meshStandardMaterial color={color} emissive={color} emissiveIntensity={hovered ? 0.5 : 0} />
               </mesh>
             )}
           </group>
 
-          {/* Particles & Billboard move with the planet group because they are children of it */}
           {hovered && <PlanetParticles position={[0, 0, 0]} color={color} planetId={id} />}
 
-          <Billboard position={[0, 1.8, 0]}>
-            <Text fontSize={0.35} color="white" anchorX="center" anchorY="bottom">
+          {/* Dynamic Billboard position based on planet size */}
+          <Billboard position={[0, size + 1.2, 0]}>
+            <Text 
+              fontSize={hovered ? 0.6 : 0.4} 
+              color={hovered ? "yellow" : "white"} 
+              outlineWidth={0.02}
+              outlineColor="black" 
+              anchorX="center" 
+              anchorY="bottom"
+            >
               {label}
             </Text>
           </Billboard>

@@ -1,5 +1,5 @@
 import Earth from "./earth";
-// import Mars from "./mars"; // Not needed for GLTF
+import Mars from "./mars"; // Not needed for GLTF
 import Jupiter from "./jupiter";
 import Saturn from "./saturn";
 import Mercury from "./mercury";
@@ -9,7 +9,7 @@ import Neptune from "./neptune";
 
 export const planetModels = {
   earth: { type: "texture", component: Earth },
-  mars: { type: "gltf", path: "/models/mars.glb" },
+  mars: { type: "texture", component: Mars },
   jupiter: { type: "texture", component: Jupiter },
   saturn: { type: "texture", component: Saturn },
   mercury: { type: "texture", component: Mercury },
