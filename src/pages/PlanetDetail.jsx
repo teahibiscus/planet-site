@@ -28,6 +28,13 @@ export default function PlanetDetail() {
         </ul>
       </div>
 
+      <button 
+        onClick={() => navigate(-1)}
+        style={{ position: 'absolute', bottom: '20px', left: '20px', zIndex: 10, padding: '10px 20px', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid white', borderRadius: '5px', cursor: 'pointer' }}
+      >
+        ← Back
+      </button>
+
       {/* COLUMN 2: THE 3D CANVAS */}
       <div style={{ height: '100%', minHeight: 0 }}>
         <PlanetDetailScene planetId={id} />
