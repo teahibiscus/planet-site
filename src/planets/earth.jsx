@@ -1,12 +1,4 @@
-// earth.js
-import PlanetModel from "../components/Planet";
-
+import PlanetGLTF from "../components/PlanetGLTF";
 export default function Earth() {
-  return (
-    <PlanetModel
-      texture="/textures/earth/color.jpg"
-      normal="/textures/earth/normal.jpg"
-      roughness="/textures/earth/roughness.jpg"
-    />
-  );
+  return <PlanetGLTF path="/models/earth.glb" scale={1.5} />;
 }

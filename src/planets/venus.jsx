@@ -1,13 +1,5 @@
-// src/planets/venus.jsx
-import PlanetModel from "../components/PlanetModel";
+import PlanetGLTF from "../components/PlanetGLTF";
 
 export default function Venus() {
-  return (
-    <PlanetModel
-      texture="/textures/venus/color.jpg"
-      normal="/textures/venus/normal.jpg"
-      roughness="/textures/venus/roughness.jpg"
-      radius={1.5}
-    />
-  );
+  return <PlanetGLTF path="/models/venus.glb" scale={1.3} />;
 }

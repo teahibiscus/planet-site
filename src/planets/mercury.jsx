@@ -1,11 +1,6 @@
 // src/planets/mercury.jsx
-import PlanetModel from "../components/PlanetModel";
+import PlanetGLTF from "../components/PlanetGLTF";
 
 export default function Mercury() {
-  return (
-    <PlanetModel
-      texture="/textures/mercury.jpg"
-      radius={1.1}
-    />
-  );
+  return <PlanetGLTF path="/models/mercury.glb" scale={1.1} />;
 }

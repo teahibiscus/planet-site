@@ -1,5 +1,5 @@
-// src/planets/mercury.jsx
-import PlanetModel from "../components/PlanetModel";
+// src/planets/jupiter.jsx
+import PlanetGLTF from "../components/PlanetGLTF";
 export default function Jupiter() {
   return <PlanetGLTF path="/models/jupiter.glb" scale={2.3} />;
 }

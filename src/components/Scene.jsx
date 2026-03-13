@@ -27,21 +27,21 @@ export default function Scene() {
           id="mercury"
           color="#b8b8b8"
           center={sunPosition}
-          orbitRadius={4}
+          orbitRadius={8}
           orbitSpeed={0.4}
         />
         <Planet
           id="venus"
           color="#e0c16c"
           center={sunPosition}
-          orbitRadius={6}
+          orbitRadius={10}
           orbitSpeed={0.3}
         />
         <Planet
           id="earth"
           color="#4a90e2"
           center={sunPosition}
-          orbitRadius={8}
+          orbitRadius={10 }
           orbitSpeed={0.25}
         />
         <Planet

@@ -16,7 +16,7 @@ export default function PlanetDetail() {
 
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '256px 1fr', width: 'screen', height: '100%' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '256px 1fr', width: '100%', height: '100%' }}>
       <div style={{ height: '100%', padding: '2rem', color: 'white', backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', overflowY: 'auto' }}>
         <h1 style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>{data.name}</h1>
         <p style={{ opacity: 0.8, marginBottom: '1.5rem' }}>{data.description}</p>
