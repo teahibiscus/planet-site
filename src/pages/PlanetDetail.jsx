@@ -16,22 +16,23 @@ export default function PlanetDetail() {
 
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', width: '100%', height: '100%' }}>
-      <div style={{ height: '100%', padding: '2rem', color: 'white', backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', overflowY: 'auto' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+      
+      {/* COLUMN 1: SIDEBAR */}
+      <div style={{ padding: '2rem', color: 'white', backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', overflowY: 'auto' }}>
         <h1 style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>{data.name}</h1>
         <p style={{ opacity: 0.8, marginBottom: '1.5rem' }}>{data.description}</p>
-
         <h2 style={{ fontSize: '1.25rem', fontWeight: 'semibold', marginBottom: '0.5rem' }}>Key Facts</h2>
         <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', opacity: 0.9 }}>
-          {data.facts.map((f) => (
-            <li key={f}>{f}</li>
-          ))}
+          {data.facts.map((f) => <li key={f}>{f}</li>)}
         </ul>
       </div>
 
+      {/* COLUMN 2: THE 3D CANVAS */}
       <div style={{ height: '100%', minHeight: 0 }}>
         <PlanetDetailScene planetId={id} />
       </div>
+
     </div>
   );
 }
