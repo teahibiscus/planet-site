@@ -5,21 +5,32 @@ import { planetData } from "../data/planetData";
 export default function PlanetDetail() {
   const { id } = useParams();
   const data = planetData[id];
+  if (!data) {
+  return (
+    <div className="text-white p-10">
+      <h1 className="text-3xl font-bold">Planet not found</h1>
+      <p>Missing or invalid planet data.</p>
+    </div>
+  );
+}
+
 
   return (
-    <div className="w-screen h-screen grid grid-cols-1 md:grid-cols-2">
-      <PlanetDetailScene planetId={id} />
+    <div style={{ display: 'grid', gridTemplateColumns: '256px 1fr', width: 'screen', height: '100%' }}>
+      <div style={{ height: '100%', padding: '2rem', color: 'white', backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', overflowY: 'auto' }}>
+        <h1 style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>{data.name}</h1>
+        <p style={{ opacity: 0.8, marginBottom: '1.5rem' }}>{data.description}</p>
 
-      <div className="p-8 text-white bg-black/40 backdrop-blur">
-        <h1 className="text-4xl font-bold mb-4">{data.name}</h1>
-        <p className="opacity-80 mb-6">{data.description}</p>
-
-        <h2 className="text-xl font-semibold mb-2">Key Facts</h2>
-        <ul className="space-y-2 opacity-90">
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 'semibold', marginBottom: '0.5rem' }}>Key Facts</h2>
+        <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', opacity: 0.9 }}>
           {data.facts.map((f) => (
             <li key={f}>{f}</li>
           ))}
         </ul>
+      </div>
+
+      <div style={{ height: '100%', minHeight: 0 }}>
+        <PlanetDetailScene planetId={id} />
       </div>
     </div>
   );

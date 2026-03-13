@@ -2,9 +2,12 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { Suspense } from "react";
 import { planetModels } from "../planets";
+import PlanetGLTF from "./PlanetGLTF";
 
 export default function PlanetDetailScene({ planetId }) {
-  const PlanetComponent = planetModels[planetId];
+  const planetData = planetModels[planetId];
+
+  if (!planetData) return null;
 
   return (
     <Canvas camera={{ position: [0, 0, 6] }}>
@@ -14,7 +17,8 @@ export default function PlanetDetailScene({ planetId }) {
       <Stars radius={50} depth={20} count={5000} factor={4} fade />
 
       <Suspense fallback={null}>
-        {PlanetComponent && <PlanetComponent />}
+        {planetData.type === 'texture' && planetData.component && <planetData.component />}
+        {planetData.type === 'gltf' && planetData.path && <PlanetGLTF path={planetData.path} scale={2} />}
       </Suspense>
 
       <OrbitControls enablePan={false} />

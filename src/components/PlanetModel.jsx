@@ -3,13 +3,18 @@ import { useTexture } from "@react-three/drei";
 export default function PlanetModel({
   radius = 1.5,
   texture,
-  normal,
-  roughness,
 }) {
+  if (!texture) {
+    return (
+      <mesh rotation={[0.4, 0, 0]}>
+        <sphereGeometry args={[radius, 64, 64]} />
+        <meshStandardMaterial color="red" />
+      </mesh>
+    );
+  }
+
   const maps = useTexture({
     map: texture,
-    normalMap: normal,
-    roughnessMap: roughness,
   });
 
   return (
