@@ -63,8 +63,19 @@ export default function PlanetLife({ planetId }) {
             {data.title.toUpperCase()}
           </Text>
 
+          <Text
+              fontSize={0.06}
+              maxWidth={1.6}
+              textAlign="center"
+              position={[0, 0.4, 0]}
+              lineHeight={1.4}
+              font="/fonts/Quantico-Regular.ttf"
+            >
+              {data.description}
+            </Text>
+
           {/* 2. DYNAMIC CONTENT AREA */}
-          {!showTips ? (
+          {/* {!showTips ? (
             // SHORT VIEW: Description
             <Text
               fontSize={0.06}
@@ -95,7 +106,6 @@ export default function PlanetLife({ planetId }) {
             </group>
           )}
 
-          {/* 3. INTERACTIVE BUTTON (using an invisible Text component as a trigger) */}
           <Text
             fontSize={0.07}
             position={[0, -0.3, 0]}
@@ -109,7 +119,7 @@ export default function PlanetLife({ planetId }) {
             onPointerOut={() => (document.body.style.cursor = "default")}
           >
             {showTips ? "[ CLICK TO CLOSE LOGS ]" : "[ CLICK TO VIEW SURVIVAL TIPS ]"}
-          </Text>
+          </Text> */}
         </Billboard>
       </Suspense>
 

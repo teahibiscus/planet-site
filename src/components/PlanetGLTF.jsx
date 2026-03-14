@@ -61,7 +61,11 @@ export default function PlanetGLTF({ path, scale = 1, hovered, isSun = false}) {
 
   if (!processedScene) return null;
 
-  return (<group scale={finalDisplayScale}>
-      <primitive object={processedScene} />
-    </group>);
+  // Inside PlanetGLTF.js
+return (
+  <primitive 
+    object={processedScene} 
+    scale={finalDisplayScale} 
+  />
+);
 }

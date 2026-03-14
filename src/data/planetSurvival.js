@@ -1,8 +1,8 @@
 export const planetSurvivalData = {
   mercury: {
-    title: "Mercury Survival Guide",
+    title: "You can survive… maybe 2 minutes.",
     description:
-      "Mercury is the closest planet to the Sun, with extreme temperatures ranging from -173°C at night to 427°C during the day. The lack of atmosphere means no protection from solar radiation, making it impossible for humans to survive without advanced technology. Any attempt to colonize Mercury would require habitats with robust thermal regulation and radiation shielding.",
+      "Because of its fast rotation, one side will always be extremely hot while the opposite side will be extremely cold. To survive, you would have to stay in the line between the two, but you still won’t survive long.",
     survivalTips: [
       "Design habitats with extreme thermal insulation to withstand temperature fluctuations.",
       "Implement advanced radiation shielding to protect against intense solar radiation.",
@@ -11,9 +11,9 @@ export const planetSurvivalData = {
     ],
   },
   venus: {
-    title: "Venus Survival Guide",
+    title: "You can survive… less than a second.",
     description:
-      "Venus has a thick atmosphere composed mainly of carbon dioxide, with clouds of sulfuric acid, creating a runaway greenhouse effect. Surface temperatures average around 467°C, and the pressure is about 92 times that of Earth. The acidic environment and extreme heat make Venus inhospitable for human life without highly specialized habitats.",
+      "Even though Venus has about the same gravity as Earth, you would vaporize quickly because of its intense heat supported by the thick atmosphere. Please don’t try to come here.",
     survivalTips: [
       "Design habitats with advanced atmospheric control systems to handle the thick, toxic atmosphere.",
       "Implement robust thermal regulation to withstand the extreme surface temperatures.",
@@ -22,9 +22,9 @@ export const planetSurvivalData = {
     ],
   },
   earth: {
-    title: "Earth Survival Guide",
+    title: "You can survive… however long you think you can survive right now!",
     description:
-      "Earth is the only known planet to support life, with a breathable atmosphere, liquid water, and a moderate climate. To survive on Earth, humans need to maintain a sustainable environment by managing resources wisely, reducing pollution, and protecting natural ecosystems. Climate change and environmental degradation pose significant challenges to long-term survival on our home planet.",
+      "With oxygen, water, food, everything we humans need for survival, you can survive well here! Just avoid any accidents that could shorten your life span.",
     survivalTips: [
       "Maintain a sustainable environment by managing resources wisely.",
       "Reduce pollution to protect air and water quality.",
@@ -33,9 +33,9 @@ export const planetSurvivalData = {
     ],
   },
   mars: {
-    title: "Mars Survival Guide",
+    title: "You can survive… maybe 2 minutes.",
     description:
-      "Mars is a cold desert planet with a thin atmosphere composed mostly of carbon dioxide. Surface temperatures can drop to -125°C at the poles and rise to 20°C near the equator during the day. The lack of liquid water and breathable air makes Mars inhospitable for humans without advanced life support systems.",
+      "While the intensity of the cold may be similar to that of temperatures on Earth (because of the thin air), the atmosphere is mostly made up of carbon dioxide. With no oxygen available, you would be able to survive until you couldn’t hold your breath any longer.",
     survivalTips: [
       "Design habitats with advanced life support systems to provide breathable air and water.",
       "Implement thermal regulation to withstand the extreme temperature fluctuations.",
@@ -44,9 +44,9 @@ export const planetSurvivalData = {
     ],
   },
   jupiter: {
-    title: "Jupiter Survival Guide",
+    title: "You can survive… less than a second.",
     description:
-      "Jupiter is a gas giant with no solid surface, composed mainly of hydrogen and helium. The planet has extreme atmospheric conditions, including powerful storms and intense radiation belts. Human survival on Jupiter is currently impossible due to the lack of a solid surface and the hostile environment.",
+      "Since Jupiter is a gas planet, there isn’t a solid layer you could stand on. So once you attempt to land, you would instead just descend forever until crushed by the pressure of the planet’s layers.",
     survivalTips: [
       "Design habitats with advanced radiation shielding to protect against the intense radiation belts.",
       "Implement robust thermal regulation to withstand the extreme atmospheric conditions.",
@@ -55,9 +55,9 @@ export const planetSurvivalData = {
     ],
   },
   saturn: {
-    title: "Saturn Survival Guide",
+    title: "You can survive… less than a second.",
     description:
-      "Saturn is a gas giant with no solid surface, composed mainly of hydrogen and helium. The planet has extreme atmospheric conditions, including powerful storms and intense radiation belts. Human survival on Saturn is currently impossible due to the lack of a solid surface and the hostile environment.",
+      "Since Saturn is a gas planet, there isn’t a solid layer you could stand on. So once you attempt to land, you would instead just descend forever until crushed by the pressure of the planet’s layers. Even with Saturn’s rings, they aren’t stable enough to live a life on.",
     survivalTips: [
       "Design habitats with advanced radiation shielding to protect against the intense radiation belts.",
       "Implement robust thermal regulation to withstand the extreme atmospheric conditions.",
@@ -66,9 +66,9 @@ export const planetSurvivalData = {
     ],
   },
   uranus: {
-    title: "Uranus Survival Guide",
+    title: "You can survive… less than a second.",
     description:
-      "Uranus is an ice giant with no solid surface, composed mainly of hydrogen, helium, and methane. The planet has extreme atmospheric conditions, including powerful storms and intense radiation belts. Human survival on Uranus is currently impossible due to the lack of a solid surface and the hostile environment.",
+      "Since Uranus is a gas planet, there isn’t a solid layer you could stand on. So once you attempt to land, you would instead just descend forever until crushed by the pressure of the planet’s layers.",
     survivalTips: [
       "Design habitats with advanced radiation shielding to protect against the intense radiation belts.",
       "Implement robust thermal regulation to withstand the extreme atmospheric conditions.",
@@ -77,9 +77,9 @@ export const planetSurvivalData = {
     ],
   },
   neptune: {
-    title: "Neptune Survival Guide",
+    title: "You can survive… less than a second.",
     description:
-      "Neptune is an ice giant with no solid surface, composed mainly of hydrogen, helium, and methane. The planet has extreme atmospheric conditions, including powerful storms and intense radiation belts. Human survival on Neptune is currently impossible due to the lack of a solid surface and the hostile environment.",
+      "Since Neptune is a gas planet, there isn’t a solid layer you could stand on. So once you attempt to land, you would instead just descend forever until crushed by the pressure of the planet’s layers.",
     survivalTips: [
       "Design habitats with advanced radiation shielding to protect against the intense radiation belts.",
       "Implement robust thermal regulation to withstand the extreme atmospheric conditions.",

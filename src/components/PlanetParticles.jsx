@@ -11,19 +11,27 @@ export default function PlanetParticles({ position, color, planetId }) {
     const positions = new Float32Array(particleCount * 3);
     const velocities = new Float32Array(particleCount * 3);
 
-    for (let i = 0; i < particleCount; i++) {
-      // Random positions around the planet
-      positions[i * 3] = (Math.random() - 0.5) * 2;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 2;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 2;
+    // Inside useMemo loop
+for (let i = 0; i < particleCount; i++) {
+  // 1. Create a random direction vector
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  const x = Math.sin(phi) * Math.cos(theta);
+  const y = Math.sin(phi) * Math.sin(theta);
+  const z = Math.cos(phi);
 
-      // Velocities outward from planet
-      const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 0.02 + 0.01;
-      velocities[i * 3] = Math.cos(angle) * speed;
-      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.01;
-      velocities[i * 3 + 2] = Math.sin(angle) * speed;
-    }
+  // 2. Spawn them AT the surface (Radius 2) or slightly outside
+  const radius = 2.0 + Math.random() * 0.2; 
+  positions[i * 3] = x * radius;
+  positions[i * 3 + 1] = y * radius;
+  positions[i * 3 + 2] = z * radius;
+
+  // 3. Velocity points AWAY from center
+  const speed = Math.random() * 0.01 + 0.005;
+  velocities[i * 3] = x * speed;
+  velocities[i * 3 + 1] = y * speed;
+  velocities[i * 3 + 2] = z * speed;
+}
 
     return { positions, velocities };
   }, []);

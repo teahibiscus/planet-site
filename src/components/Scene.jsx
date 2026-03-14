@@ -8,11 +8,10 @@ import { Suspense } from "react";
 import Loader from "./Loader";
 
 function PerspectiveZoom() {
-  const targetPos = new THREE.Vector3(0, 20, 30); // Start position for the "distant" view
   useFrame((state) => {
-    // Smoothly interpolate the camera position from wherever it is to [0, 0, 4]
-    state.camera.position.lerp(targetPos, 0.05);
-    state.camera.lookAt(0, 0, 0);
+    // Zoom to 15 units away so you can see the 10-unit planet + the text above it
+    state.camera.position.lerp(new THREE.Vector3(0, 10, 20), 0.05);
+    state.camera.lookAt(0, 0, 3);
   });
   return null;
 }
