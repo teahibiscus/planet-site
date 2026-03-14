@@ -58,6 +58,7 @@ export default function PlanetDetailScene({ planetId }) {
               anchorY="middle"
               outlineWidth={0.05}
               outlineColor="#000000"
+              font="/fonts/Quantico-Regular.ttf"
             >
               {`Now can we live on ${planetName}?`}
             </Text>

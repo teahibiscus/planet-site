@@ -58,6 +58,7 @@ export default function PlanetLife({ planetId }) {
             color="#60a5fa" // Sci-fi blue
             outlineWidth={0.02}
             outlineColor="black"
+            font="/fonts/Quantico-Regular.ttf"
           >
             {data.title.toUpperCase()}
           </Text>
@@ -71,6 +72,7 @@ export default function PlanetLife({ planetId }) {
               textAlign="center"
               position={[0, 0.4, 0]}
               lineHeight={1.4}
+              font="/fonts/Quantico-Regular.ttf"
             >
               {data.description}
             </Text>
@@ -85,6 +87,7 @@ export default function PlanetLife({ planetId }) {
                   position={[0, -i * 0.15, 0]} // Stacks them vertically
                   textAlign="center"
                   color="#fbbf24" // Amber warning color
+                  font="/fonts/Quantico-Regular.ttf"
                 >
                   {`• ${tip}`}
                 </Text>
@@ -97,6 +100,7 @@ export default function PlanetLife({ planetId }) {
             fontSize={0.07}
             position={[0, -0.3, 0]}
             color="white"
+            font="/fonts/Quantico-Regular.ttf"
             onClick={(e) => {
               e.stopPropagation();
               setShowTips(!showTips);

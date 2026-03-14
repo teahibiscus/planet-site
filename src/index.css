@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Kirang+Haerang&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Kirang+Haerang&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Kirang+Haerang&family=Mogra&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 
 html, body, #root {
   width: 100%;
@@ -21,9 +25,9 @@ html, body, #root {
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --sans: 'Atma', 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Kirang Haerang', 'Segoe UI', Roboto, sans-serif;
+  --mono: 'Mogra', Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -40,11 +44,33 @@ html, body, #root {
   }
 }
 
+
+.kirang-haerang-regular {
+  font-family: "Kirang Haerang", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.atma-regular {
+  font-family: "Atma", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mogra-regular {
+  font-family: "Mogra", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
 canvas {
   width: 100% !important;
   height: 100% !important;
   display: block;
   background: #020617 !important;
+  font-family: var(--mono);
 }
 
 

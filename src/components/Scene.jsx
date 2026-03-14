@@ -40,9 +40,10 @@ export default function Scene() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '1rem'
+        gap: '1rem',
+
       }}>
-        <h1 style={{ margin: 0, fontSize: "3rem", textShadow: '0 0 20px rgba(255,255,255,0.3)' }}>
+        <h1 style={{ margin: 0, fontSize: "3rem", textShadow: '0 0 20px rgba(255,255,255,0.3)', fontFamily: "'Kirang Haerang', system-ui, sans-serif" }}>
           What it would be like on...
         </h1>
         <p style={{ color: "#ccc" }}>Click on a planet to explore</p>
