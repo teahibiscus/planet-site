@@ -11,7 +11,7 @@ import Loader from "./Loader";
 import PlanetParticles from "./PlanetParticles";
 
 function PerspectiveZoom({ targetZ, onFinished, controlsRef }) {
-  const target = useMemo(() => new THREE.Vector3(0, 0, targetZ), [targetZ]);
+  const target = useMemo(() => new THREE.Vector3(0, 2, targetZ), [targetZ]);
   const [active, setActive] = useState(true);
 
   useFrame((state) => {

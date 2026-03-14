@@ -22,7 +22,7 @@ function PerspectiveZoom() {
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+  const planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
   
   return (
     <div style={{
