@@ -74,6 +74,7 @@ export default function Planet({
               outlineColor="black" 
               anchorX="center" 
               anchorY="bottom"
+              font="/fonts/Quantico-Regular.ttf"
             >
               {label}
             </Text>

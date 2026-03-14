@@ -85,6 +85,7 @@ export default function PlanetLife({ planetId }) {
               textAlign="center"
               position={[0, 0.4, 0]}
               lineHeight={1.4}
+              color="rgb(236, 192, 241)" // Highlighted yellow for tips
               font="/fonts/Quantico-Regular.ttf"
             >
               {data.potential}
