@@ -6,6 +6,7 @@ import * as THREE from "three";
 import { Suspense } from "react";
 import { planetSurvivalData } from "../data/planetSurvival";
 import { useState } from "react";
+import Loader from "./Loader";
 
 // HELPER: This component handles the cinematic zoom-in
 function PerspectiveZoom() {
@@ -43,17 +44,17 @@ export default function PlanetLife({ planetId }) {
       <pointLight position={[10, 10, 10]} intensity={2} />
       <Stars radius={100} depth={50} count={5000} factor={4} fade speed={1} />
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         {/* We use normalizedScale to keep the curve consistent across planets */}
         <group position={[0, -2.5, 0]} scale={normalizedScale}>
           <PlanetComponent />
         </group>
 
-        <Billboard position={[0, 1.2, 0.5]}>
+        <Billboard position={[0, 0, 0.5]}>
           {/* 1. MAIN TITLE */}
           <Text
             fontSize={0.12}
-            position={[0, 0.4, 0]}
+            position={[0, 0.8, 0]}
             color="#60a5fa" // Sci-fi blue
             outlineWidth={0.02}
             outlineColor="black"
@@ -68,14 +69,14 @@ export default function PlanetLife({ planetId }) {
               fontSize={0.06}
               maxWidth={1.6}
               textAlign="center"
-              position={[0, 0.1, 0]}
+              position={[0, 0.4, 0]}
               lineHeight={1.4}
             >
               {data.description}
             </Text>
           ) : (
             // EXPANDED VIEW: Survival Tips
-            <group position={[0, 0.1, 0]}>
+            <group position={[0, 0.4, 0]}>
               {data.survivalTips.map((tip, i) => (
                 <Text
                   key={i}
@@ -94,7 +95,7 @@ export default function PlanetLife({ planetId }) {
           {/* 3. INTERACTIVE BUTTON (using an invisible Text component as a trigger) */}
           <Text
             fontSize={0.07}
-            position={[0, -0.6, 0]}
+            position={[0, -0.3, 0]}
             color="white"
             onClick={(e) => {
               e.stopPropagation();

@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 
-export default function PlanetGLTF({ path, scale = 1, hovered }) {
+export default function PlanetGLTF({ path, scale = 1, hovered, isSun = false}) {
   const { scene } = useGLTF(path);
 
   const processedScene = useMemo(() => {
@@ -45,14 +45,23 @@ export default function PlanetGLTF({ path, scale = 1, hovered }) {
     if (!processedScene) return;
     processedScene.traverse((child) => {
       if (child.isMesh) {
-        // Subtle glow when not hovered, bright glow when hovered
-        child.material.emissive.set(hovered ? 0xffffff : 0x444444);
-        child.material.emissiveIntensity = hovered ? 0.8 : 0.2;
+        if (isSun) {
+          // SUN LOGIC: High intensity, specific color, ignores external shadows
+          child.material.emissive.set("#ffcc00"); 
+          child.material.emissiveIntensity = 2;
+          child.material.toneMapped = false; // Makes it "pop"
+        } else {
+          // PLANET LOGIC: Subtle glow
+          child.material.emissive.set(hovered ? 0xffffff : 0x444444);
+          child.material.emissiveIntensity = hovered ? 0.8 : 0.2;
+        }
       }
     });
-  }, [processedScene, hovered]);
+  }, [processedScene, hovered, isSun]);
 
   if (!processedScene) return null;
 
-  return <primitive object={processedScene} scale={finalDisplayScale} />;
+  return (<group scale={finalDisplayScale}>
+      <primitive object={processedScene} />
+    </group>);
 }

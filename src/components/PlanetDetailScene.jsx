@@ -7,6 +7,7 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useNavigate } from "react-router-dom";
 import { planetData } from "../data/planetData";
+import Loader from "./Loader";
 
 function PerspectiveZoom() {
   useFrame((state) => {
@@ -33,7 +34,7 @@ export default function PlanetDetailScene({ planetId }) {
       <pointLight position={[5, 5, 5]} intensity={1.2} />
       <Stars radius={50} depth={20} count={5000} factor={4} fade />
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <group 
           onPointerOver={() => {
             setHovered(true);

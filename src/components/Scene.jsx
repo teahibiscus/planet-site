@@ -1,15 +1,51 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, Stars, useProgress } from "@react-three/drei";
 import Planet from "./Planet";
+import Sun from "../planets/sun";
+import * as THREE from "three";
+import { useFrame } from "@react-three/fiber";
+import { Suspense } from "react";
+import Loader from "./Loader";
+
+function PerspectiveZoom() {
+  const targetPos = new THREE.Vector3(0, 20, 30); // Start position for the "distant" view
+  useFrame((state) => {
+    // Smoothly interpolate the camera position from wherever it is to [0, 0, 4]
+    state.camera.position.lerp(targetPos, 0.05);
+    state.camera.lookAt(0, 0, 0);
+  });
+  return null;
+}
 
 export default function Scene() {
   const sunPosition = [0, 0, 0];
+  const { active, progress } = useProgress();
+  // 'active' is true while loading, false when finished
+  const isLoaded = !active && progress === 100;
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <div style={{ position: "absolute", top: 20, left: 500, zIndex: 1, color: "#fff", fontFamily: "Arial, sans-serif" }}>
-        <h1 style={{ margin: 0, fontSize: "3rem" }}>What it would be like on...</h1>
-        <p style={{ margin: "20px 0 0", fontSize: "0.9rem", color: "#ccc" }}>Click on a planet to explore</p>
+      <div style={{ 
+        position: "absolute", 
+        top: '10%', 
+        left: '50%', 
+        transform: 'translateX(-50%)', // Center it perfectly
+        zIndex: 1, 
+        textAlign: 'center',
+        color: "#fff",
+        opacity: isLoaded ? 1 : 0,
+        transform: isLoaded ? 'translate(-50%, 0)' : 'translate(-50%, -20px)',
+        transition: 'all 1.2s ease-out', // Smooth fade and slide down
+        pointerEvents: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1rem'
+      }}>
+        <h1 style={{ margin: 0, fontSize: "3rem", textShadow: '0 0 20px rgba(255,255,255,0.3)' }}>
+          What it would be like on...
+        </h1>
+        <p style={{ color: "#ccc" }}>Click on a planet to explore</p>
       </div>
       <Canvas
         style={{ width: "100%", height: "100%" }}
@@ -19,12 +55,12 @@ export default function Scene() {
         <ambientLight intensity={0.5} />
 
         {/* Sun */}
-        <mesh position={sunPosition}>
-          <sphereGeometry args={[5, 64, 64]} />
-          <meshStandardMaterial emissive="yellow" color="orange" emissiveIntensity={2} />
-        </mesh>
-        <pointLight position={sunPosition} intensity={3} distance={100} decay={2} color="#ffeaa7" />
-
+        <Suspense fallback={<Loader/>}>
+        <PerspectiveZoom />
+        <pointLight position={sunPosition} intensity={10} distance={100} decay={2} color="#ffeaa7" />
+        <group scale={4}> {/* Scale it up so it's bigger than the planets */}
+          <Sun />
+        </group>
         <Stars radius={50} depth={20} count={5000} factor={4} fade />
 
         <Planet
@@ -83,6 +119,7 @@ export default function Scene() {
           orbitRadius={22}
           orbitSpeed={0.08}
         />
+        </ Suspense>
 
         <OrbitControls enablePan={false} />
       </Canvas>

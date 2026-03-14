@@ -5,6 +5,7 @@ import { planetData } from "../data/planetData";
 export default function PlanetDetail() {
   const { id } = useParams();
   const data = planetData[id];
+  const navigate = useNavigate();
   if (!data) {
   return (
     <div className="text-white p-10">
@@ -29,7 +30,7 @@ export default function PlanetDetail() {
       </div>
 
       <button 
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
         style={{ position: 'absolute', bottom: '20px', left: '20px', zIndex: 10, padding: '10px 20px', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid white', borderRadius: '5px', cursor: 'pointer' }}
       >
         ← Back
