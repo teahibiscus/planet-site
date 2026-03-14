@@ -11,7 +11,7 @@ export const planetSurvivalData = {
     description:
       "Even though Venus has about the same gravity as Earth, you would vaporize quickly because of its intense heat supported by the thick atmosphere. Please don’t try to come here.",
     potential:
-      "About 30 miles above the surface of Venus, the temperatures range from 86 to 158 degrees Farenheit, which is actually a temperature range that certain microbes on Earth can withstand! Atmospheric pressure at this height is similar to that of Earth’s surface. In addition, the mysterious dark streaks in Venus’ clouds have many possible explanations, but scientists have proposed that they could be microbial life. While these are simply speculations, doesn’t it drive your curiosity on what is possible?",
+      "About 30 miles above the surface of Venus, the temperatures range from 86 to 158 degrees Farenheit, which is a temperature range that certain microbes on Earth can withstand! In addition, the mysterious dark streaks in Venus’ clouds have many possible explanations, but scientists have proposed that they could be microbial life. However, none of this is conclusive.",
   },
   earth: {
     title: "You can survive… however long you think you can survive right now!",
