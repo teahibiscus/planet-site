@@ -29,6 +29,10 @@ export default function LifeOnPlanet() {
 
       {/* The 3D World */}
       <PlanetLife planetId={id} />
+      <div style={{ position: 'absolute', bottom: '20px', right: '20px', zIndex: 10, padding: '10px 20px', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid white', borderRadius: '5px' }}>
+        <p>Sources: https://science.nasa.gov/</p>
+        <p>Sources: https://www.discovery.com/science/how-long-survive-on-every-planet</p>
+      </div>
     </div>
   );
 } 

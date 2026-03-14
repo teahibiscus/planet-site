@@ -41,6 +41,9 @@ export default function PlanetDetail() {
         <PlanetDetailScene planetId={id} />
       </div>
 
+      <div style={{ position: 'absolute', bottom: '20px', right: '20px', zIndex: 10, padding: '10px 20px', background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid white', borderRadius: '5px' }}>
+        <p>Sources: https://science.nasa.gov/</p>
+      </div>
     </div>
   );
 }

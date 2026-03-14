@@ -14,7 +14,7 @@ export const planetSurvivalData = {
       "About 30 miles above the surface of Venus, the temperatures range from 86 to 158 degrees Farenheit, which is a temperature range that certain microbes on Earth can withstand! In addition, the mysterious dark streaks in Venus’ clouds have many possible explanations, but scientists have proposed that they could be microbial life. However, none of this is conclusive.",
   },
   earth: {
-    title: "You can survive… however long you think you can survive right now!",
+    title: "You can survive… however long you want!",
     description:
       "With oxygen, water, food, everything we humans need for survival, you can survive well here! Just avoid any accidents that could shorten your life span.",
     potential:
