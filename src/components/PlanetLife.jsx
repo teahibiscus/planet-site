@@ -63,19 +63,9 @@ export default function PlanetLife({ planetId }) {
             {data.title.toUpperCase()}
           </Text>
 
-          <Text
-              fontSize={0.06}
-              maxWidth={1.6}
-              textAlign="center"
-              position={[0, 0.4, 0]}
-              lineHeight={1.4}
-              font="/fonts/Quantico-Regular.ttf"
-            >
-              {data.description}
-            </Text>
 
           {/* 2. DYNAMIC CONTENT AREA */}
-          {/* {!showTips ? (
+          {!showTips ? (
             // SHORT VIEW: Description
             <Text
               fontSize={0.06}
@@ -89,21 +79,16 @@ export default function PlanetLife({ planetId }) {
             </Text>
           ) : (
             // EXPANDED VIEW: Survival Tips
-            <group position={[0, 0.4, 0]}>
-              {data.survivalTips.map((tip, i) => (
-                <Text
-                  key={i}
-                  fontSize={0.05}
-                  maxWidth={1.6}
-                  position={[0, -i * 0.15, 0]} // Stacks them vertically
-                  textAlign="center"
-                  color="#fbbf24" // Amber warning color
-                  font="/fonts/Quantico-Regular.ttf"
-                >
-                  {`• ${tip}`}
-                </Text>
-              ))}
-            </group>
+            <Text
+              fontSize={0.06}
+              maxWidth={1.6}
+              textAlign="center"
+              position={[0, 0.4, 0]}
+              lineHeight={1.4}
+              font="/fonts/Quantico-Regular.ttf"
+            >
+              {data.potential}
+            </Text>
           )}
 
           <Text
@@ -118,8 +103,8 @@ export default function PlanetLife({ planetId }) {
             onPointerOver={() => (document.body.style.cursor = "pointer")}
             onPointerOut={() => (document.body.style.cursor = "default")}
           >
-            {showTips ? "[ CLICK TO CLOSE LOGS ]" : "[ CLICK TO VIEW SURVIVAL TIPS ]"}
-          </Text> */}
+            {showTips ? "[ CLICK TO CLOSE ]" : "[ CLICK TO VIEW POTENTIAL FOR LIFE ]"}
+          </Text>
         </Billboard>
       </Suspense>
 

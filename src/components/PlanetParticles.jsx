@@ -71,7 +71,8 @@ for (let i = 0; i < particleCount; i++) {
   });
 
   return (
-    <points ref={particlesRef} position={position}>
+    <points ref={particlesRef} position={position}
+    raycast={() => null}>
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
@@ -92,6 +93,7 @@ for (let i = 0; i < particleCount; i++) {
         transparent
         opacity={0.8}
         blending={THREE.AdditiveBlending}
+        depthWrite={false}
       />
     </points>
   );
